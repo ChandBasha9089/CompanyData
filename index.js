@@ -1,66 +1,19 @@
-var dataSet=[80,55,99,125,120,300,250,25];
-var svgWidth=750;
-var svgHeight=300;
-var barPadding=10
-var barWidth=(svgWidth/dataSet.length)
-console.log(barWidth+"********Bar Width")
+<!DOCTYPE html>
+<html lang="en">
 
-var svg=d3.select('svg')
-.attr("width",svgWidth)
-.attr("height",svgHeight)
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+   
+   
+</head>
 
+<body>
+    <svg ></svg>
+    <script src="chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</body>
 
-console.log(barWidth-barPadding+"***********value")
-var barChart=svg.selectAll('rect')
-.data(dataSet)
-.enter()
-.append('rect')
-.attr('y',function(d)
-{
-    return svgHeight-d;
-})
-.attr('height',function(d)
-{
-    return d
-})
-.attr("width",barWidth-barPadding)
-
-.attr('transform',function(d,i)
-{
-    console.log(barWidth*i);
-    var translate=[barWidth*i,0];
-    console.log(translate);
-    return "translate ("+translate+")";
-
-    
-    
-});
-
-
-
-
-
-
-var text=svg.selectAll('text')
-.data(dataSet)
-.enter()
-.append('text')
-.text(function(d){return d})
-.attr('y',function(d,i)
-
-{
-    return svgHeight-d-1;
-
-}
-
-)
-.attr('x',function(d,i)
-
-{
-    
-    return barWidth*i
-
-
-}
-
-)
+</html>
